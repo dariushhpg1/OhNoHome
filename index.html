@@ -12,6 +12,8 @@
 
     <link rel="script" href="script.js">
 
+    <script src="script.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
@@ -21,10 +23,17 @@
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
 
+    <!-- leaflet js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="">
+    </script>
+    <script src="./data/points.js"></script>
+
 </head>
 
 <body>
-    <section class="header">
+    <div id="header">
         <nav>
             <a href="index.html"><img src="images/Oh No, Home! Logo.svg" alt="Logo" </a> <div class="nav-links">
                 <ul>
@@ -33,41 +42,10 @@
                 </ul>
                 </div>
         </nav>
-    </section>
-
+    </div>
 
     <div id="map">
-
     </div>
 </body>
 
 </html>
-
-<!-- leaflet js -->
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin="">
-</script>
-<script src="./data/points.js"></script>
-
-
-<script>
-    //Map initialization
-    var map = L.map('map').setView([35.6892, 51.3890], 12);
-
-    //osm layer
-    var osm = L.tileLayer('https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=lzIzrp8GaiFvAmZ3SkkM', {
-        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-    })
-    osm.addTo(map);
-
-    //GeoJSON
-    var pointsData = L.geoJSON(pointsJson, {
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup(
-                '<b>Date: </b>' + feature.properties.date + '<br>' +
-                '<b>Yearly: </b>' + feature.properties.yearly + '<br>' +
-                '<b>Monthly: </b>' + feature.properties.monthly)
-        }
-    }).addTo(map)
-</script>
