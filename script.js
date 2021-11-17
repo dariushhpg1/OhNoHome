@@ -13,9 +13,9 @@ osm.addTo(map);
 var pointsData = L.geoJSON(pointsJson, {
     onEachFeature: function (feature, layer) {
         layer.bindPopup(
-            '<b>Date: </b>' + feature.properties.date + '<br>' +
-            '<b>Yearly: </b>' + feature.properties.yearly + '<br>' +
-            '<b>Monthly: </b>' + feature.properties.monthly)
+            '<b>بروزرسانی: </b>' + feature.properties.date + '<br>' +
+            '<b>ودیعه: </b>' + feature.properties.yearly + '<br>' +
+            '<b>اجاره: </b>' + feature.properties.monthly)
     }
 }).addTo(map)
 
