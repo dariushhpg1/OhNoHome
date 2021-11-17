@@ -1,7 +1,11 @@
+@import url(/fonts/font.css);
+
 * {
+    font-family: IRANSans;
+    font-weight: normal;
+    direction: rtl;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
     list-style: none;
     text-decoration: none;
 }
@@ -59,7 +63,7 @@
     vertical-align: middle;
     height: 100%;
     color: black;
-    font-weight: 700;
+    font-weight: bold;
     font-size: 16px;
 }
 

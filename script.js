@@ -2,8 +2,10 @@
 var map = L.map('map').setView([35.6892, 51.3890], 12);
 
 //osm layer
-var osm = L.tileLayer('https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png?key=lzIzrp8GaiFvAmZ3SkkM', {
-    attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+var osm = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 osm.addTo(map);
 
@@ -16,3 +18,10 @@ var pointsData = L.geoJSON(pointsJson, {
             '<b>Monthly: </b>' + feature.properties.monthly)
     }
 }).addTo(map)
+
+
+
+//Events
+map.on('click', function (e) {
+    console.log(e)
+})
