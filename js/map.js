@@ -19,8 +19,6 @@ var pointsData = L.geoJSON(pointsJson, {
     }
 }).addTo(map)
 
-
-
 //Events
 map.on('click', function (e) {
     console.log(e)
